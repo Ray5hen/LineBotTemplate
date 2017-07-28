@@ -73,11 +73,11 @@ func weight(x string) string{
         }
         amount := float64(value)
         switch s {
-        case string('p'):
+        case string('k'):
         aaa=weightLbs(amount)+" Lbs"
         //return weightLbs(amount)+" Lbs"
         //fmt.Println(weightLbs(amount)+" Lbs")
-        case string('k'):
+        case string('p'):
         aaa=weightKg(amount)+" Kg"	
         //return weightKg(amount)+" Kg"	
         //fmt.Println(weightKg(amount)+" Kg")

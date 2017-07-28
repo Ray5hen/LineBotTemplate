@@ -78,7 +78,7 @@ func weight(x string) string{
         //return weightLbs(amount)+" Lbs"
         //fmt.Println(weightLbs(amount)+" Lbs")
         case string('k'):
-        aaa=eightKg(amount)+" Kg"	
+        aaa=weightKg(amount)+" Kg"	
         //return weightKg(amount)+" Kg"	
         //fmt.Println(weightKg(amount)+" Kg")
         }

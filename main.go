@@ -49,14 +49,46 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				   kg, err := strconv.Atoi(message.Text)
-   				   if err != nil {
+				   //kg, err := strconv.Atoi(message.Text) * 
+   				   //if err != nil {
       				// handle error
-   				   }
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+"="+ strconv.Itoa(kg))).Do(); err != nil {
+   				   //}
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(weight(message.Text))).Do(); err != nil {
 					log.Print(err)
 				}
 			}
 		}
 	}
+}
+
+func weight(x string) string{
+
+    st :=x
+    s := string(st[0])
+    if _, err := strconv.Atoi(st[1:len(st)]); err == nil {
+        value, err := strconv.ParseFloat(st[1:len(st)], 64)
+        if err != nil {
+        // do something sensible
+        }
+        amount := float64(value)
+        switch s {
+        case string('p'):
+        return weightLbs(amount)+" Lbs"
+        //fmt.Println(weightLbs(amount)+" Lbs")
+        case string('k'):
+        return weightKg(amount)+" Kg"	
+        //fmt.Println(weightKg(amount)+" Kg")
+        }
+    }else{
+        return "invalid input"
+    }
+
+}
+
+
+func weightLbs(x float64) string{
+    return strconv.FormatFloat(x * 2.2, 'f', 2, 64)
+}
+func weightKg(x float64) string{
+    return strconv.FormatFloat(x * 0.45, 'f', 2, 64)
 }

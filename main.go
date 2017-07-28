@@ -17,7 +17,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-
+	"strconv"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 
@@ -50,7 +50,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				kg := strconv.Atoi(message.Text)
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+"="+kg)).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+"="+ strconv.Itoa(kg))).Do(); err != nil {
 					log.Print(err)
 				}
 			}

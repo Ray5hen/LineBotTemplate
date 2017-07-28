@@ -49,7 +49,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				kg := strconv.Atoi(message.Text)
+				   kg, err := strconv.Atoi(message.Text)
+   				   if err != nil {
+      				// handle error
+   				   }
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+"="+ strconv.Itoa(kg))).Do(); err != nil {
 					log.Print(err)
 				}

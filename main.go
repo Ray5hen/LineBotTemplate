@@ -65,6 +65,7 @@ func weight(x string) string{
 
     st :=x
     s := string(st[0])
+    var aaa string
     if _, err := strconv.Atoi(st[1:len(st)]); err == nil {
         value, err := strconv.ParseFloat(st[1:len(st)], 64)
         if err != nil {
@@ -73,16 +74,18 @@ func weight(x string) string{
         amount := float64(value)
         switch s {
         case string('p'):
-        return weightLbs(amount)+" Lbs"
+        aaa=weightLbs(amount)+" Lbs"
+        //return weightLbs(amount)+" Lbs"
         //fmt.Println(weightLbs(amount)+" Lbs")
         case string('k'):
-        return weightKg(amount)+" Kg"	
+        aaa=eightKg(amount)+" Kg"	
+        //return weightKg(amount)+" Kg"	
         //fmt.Println(weightKg(amount)+" Kg")
         }
     }else{
-        return "invalid input"
+        aaa="invalid input"
     }
-
+    return aaa
 }
 
 

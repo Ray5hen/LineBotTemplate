@@ -49,7 +49,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				kg := message.Text * 2
+				kg := strconv.Atoi(message.Text)
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+"="+kg)).Do(); err != nil {
 					log.Print(err)
 				}

@@ -18,7 +18,7 @@ import (
 	"net/http"
 	"os"
 	"github.com/line/line-bot-sdk-go/linebot"
-	g "github.com/ray5hen/linebottemplate/gymtool"
+	g "github.com/ray5hen/linebottemplate/lib/gymtool"
 )
 
 var bot *linebot.Client

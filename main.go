@@ -56,6 +56,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(weight(message.Text))).Do(); err != nil {
 					log.Print(err)
 				}
+			case *linebot.StickerMessage:
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("I can't read Sticker").Do(); err != nil {
+					log.Print(err)
+				}
+
 			}
 		}
 	}

@@ -27,6 +27,7 @@ var bot *linebot.Client
 
 
 func main() {
+	log.Println("Hello From Go")
 	var err error
 	bot, err = linebot.New(os.Getenv("ChannelSecret"), os.Getenv("ChannelAccessToken"))
 	log.Println("Bot:", bot, " err:", err)
